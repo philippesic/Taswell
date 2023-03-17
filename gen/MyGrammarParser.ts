@@ -28,9 +28,12 @@ import { MyGrammarVisitor } from "./MyGrammarVisitor";
 
 
 export class MyGrammarParser extends Parser {
+	static readonly FunctionKeyword: number;
 	public static readonly T__0 = 1;
 	public static readonly RULE_compilationUnit = 0;
+	static readonly Identifier = 1;
 	// tslint:disable:no-trailing-whitespace
+
 	public static readonly ruleNames: string[] = [
 		"compilationUnit",
 	];
@@ -138,5 +141,21 @@ export class CompilationUnitContext extends ParserRuleContext {
 		}
 	}
 }
+
+export interface IdentifierContext extends ParserRuleContext {
+	// Interface implementation
+  }
+
+export class FunctionDeclarationContext extends ParserRuleContext {
+	public functionKeyword(): TerminalNode {
+	  return this.getToken(MyGrammarParser.FunctionKeyword, 0);
+	}
+  
+	public identifier(): TerminalNode {
+	  return this.getToken(MyGrammarParser.Identifier, 0);
+	}
+  }
+  
+  
 
 

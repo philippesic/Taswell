@@ -6,8 +6,10 @@
   "scripts": {
     "test": "start",
     "antlr4ts": "antlr4ts -visitor -o ./gen /Users/pippo/github/Taswell/src/MyGrammar.g4"
-    
   },
   "author": "Philip pesic",
-  "license": "GPLv3"
+  "license": "GPLv3",
+  "dependencies": {
+    "typescript": "^5.0.2"
+  }
 }
