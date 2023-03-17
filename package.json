@@ -1,0 +1,13 @@
+{
+  "name": "taswell",
+  "version": "1.0.0",
+  "description": "Taswell Programming Language - Built by Philip Pesic",
+  "main": "index.js",
+  "scripts": {
+    "test": "start",
+    "antlr4ts": "antlr4ts -visitor -o ./gen /Users/pippo/github/Taswell/src/MyGrammar.g4"
+    
+  },
+  "author": "Philip pesic",
+  "license": "GPLv3"
+}
