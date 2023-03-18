@@ -7,3 +7,5 @@
 ##### Someday, when my programming skills and general knowledge have improved, I may return to this project with fresh motivation, but for now, the time investment with my current skill level would prove to be unfeasible.
 
 ##### If you wish to clone this repository for personal purposes or to look through the source, you may, but although I will not officially liscence this, I ask that you do not distribute your own versions of Taswell or release the language as your own.
+
+##### If you want to learn more about the development process of Taswell, feel free to contact me at pippo.pesic@gmail.com
