@@ -7,7 +7,9 @@
   import { CompilationUnitContext, FunctionDeclarationContext, MyGrammarParser } from './MyGrammarParser';
   import { MyGrammarVisitor } from './MyGrammarVisitor';
 
-  const input = CharStreams.fromString("fn add(x: number, y: number) {return x + y;} program");
+
+  const code = "fn add(x: int, y: int) {return x + y;} program";
+  const input = CharStreams.fromString(code);
   const lexer = new MyGrammarLexer(input);
   const tokens = new CommonTokenStream(lexer);
   const parser = new MyGrammarParser(tokens);
@@ -23,19 +25,19 @@
     }
     
     visit(tree: ParseTree): string {
-      throw new Error('Method not implemented.');
+      throw new Error('ParseTree Error');
     }
 
     visitChildren(node: RuleNode): string {
-      throw new Error('Method not implemented.');
+      throw new Error('RuleNode Error');
     }
 
     visitTerminal(node: TerminalNode): string {
-      throw new Error('Method not implemented.');
+      throw new Error('TerminalNode Error');
     }
 
     visitErrorNode(node: ErrorNode): string {
-      throw new Error('Method not implemented.');
+      throw new Error('ErrorNode Error');
     }
   }
 
