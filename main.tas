@@ -1,0 +1,27 @@
+//Non-functional example of Taswell | Check README.md
+
+//Though the development of Taswell has been put on hold, here is an example of how Taswell elements could be used
+
+//Variable declaration
+let int x = 0;
+const double y = 1.0;
+var string hi = 'Hello World';
+
+//Type Mutation
+x ? float; //Change type of x from int to float
+y ? int; //Will fail - types cannot be mutated unless value is null or value is exchangeable
+
+//Printing
+write(x); //Standarn print
+writeln('I'm on a new line!'); //Standarn newline print
+
+//Functions
+fn add(int x, int y) { //Declare function with fn keyword
+    return x + y;
+}
+
+func changeType(int z) { //Declare function with func keyword
+    z ? double; //Change parameter type
+    z *= 3.14;
+    return z;
+}
