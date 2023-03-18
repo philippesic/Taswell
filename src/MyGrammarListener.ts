@@ -5,15 +5,18 @@ import { ParseTreeListener } from "antlr4ts/tree/ParseTreeListener";
 
 import { CompilationUnitContext } from "./MyGrammarParser";
 import { FunctionDeclarationContext } from "./MyGrammarParser";
-import { ParameterListContext } from "./MyGrammarParser";
-import { ParameterContext } from "./MyGrammarParser";
 import { BlockStatementContext } from "./MyGrammarParser";
 import { StatementContext } from "./MyGrammarParser";
+import { DeclarationStatementContext } from "./MyGrammarParser";
 import { ExpressionStatementContext } from "./MyGrammarParser";
 import { ExpressionContext } from "./MyGrammarParser";
-import { AtomContext } from "./MyGrammarParser";
-import { IdentifierContext } from "./MyGrammarParser";
+import { PrimaryExpressionContext } from "./MyGrammarParser";
+import { LiteralContext } from "./MyGrammarParser";
+import { ParameterListContext } from "./MyGrammarParser";
+import { ParameterContext } from "./MyGrammarParser";
 import { TypeContext } from "./MyGrammarParser";
+import { IdentifierContext } from "./MyGrammarParser";
+import { BinaryOperatorContext } from "./MyGrammarParser";
 
 
 /**
@@ -44,28 +47,6 @@ export interface MyGrammarListener extends ParseTreeListener {
 	exitFunctionDeclaration?: (ctx: FunctionDeclarationContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `MyGrammarParser.parameterList`.
-	 * @param ctx the parse tree
-	 */
-	enterParameterList?: (ctx: ParameterListContext) => void;
-	/**
-	 * Exit a parse tree produced by `MyGrammarParser.parameterList`.
-	 * @param ctx the parse tree
-	 */
-	exitParameterList?: (ctx: ParameterListContext) => void;
-
-	/**
-	 * Enter a parse tree produced by `MyGrammarParser.parameter`.
-	 * @param ctx the parse tree
-	 */
-	enterParameter?: (ctx: ParameterContext) => void;
-	/**
-	 * Exit a parse tree produced by `MyGrammarParser.parameter`.
-	 * @param ctx the parse tree
-	 */
-	exitParameter?: (ctx: ParameterContext) => void;
-
-	/**
 	 * Enter a parse tree produced by `MyGrammarParser.blockStatement`.
 	 * @param ctx the parse tree
 	 */
@@ -86,6 +67,17 @@ export interface MyGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	exitStatement?: (ctx: StatementContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `MyGrammarParser.declarationStatement`.
+	 * @param ctx the parse tree
+	 */
+	enterDeclarationStatement?: (ctx: DeclarationStatementContext) => void;
+	/**
+	 * Exit a parse tree produced by `MyGrammarParser.declarationStatement`.
+	 * @param ctx the parse tree
+	 */
+	exitDeclarationStatement?: (ctx: DeclarationStatementContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `MyGrammarParser.expressionStatement`.
@@ -110,15 +102,59 @@ export interface MyGrammarListener extends ParseTreeListener {
 	exitExpression?: (ctx: ExpressionContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `MyGrammarParser.atom`.
+	 * Enter a parse tree produced by `MyGrammarParser.primaryExpression`.
 	 * @param ctx the parse tree
 	 */
-	enterAtom?: (ctx: AtomContext) => void;
+	enterPrimaryExpression?: (ctx: PrimaryExpressionContext) => void;
 	/**
-	 * Exit a parse tree produced by `MyGrammarParser.atom`.
+	 * Exit a parse tree produced by `MyGrammarParser.primaryExpression`.
 	 * @param ctx the parse tree
 	 */
-	exitAtom?: (ctx: AtomContext) => void;
+	exitPrimaryExpression?: (ctx: PrimaryExpressionContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `MyGrammarParser.literal`.
+	 * @param ctx the parse tree
+	 */
+	enterLiteral?: (ctx: LiteralContext) => void;
+	/**
+	 * Exit a parse tree produced by `MyGrammarParser.literal`.
+	 * @param ctx the parse tree
+	 */
+	exitLiteral?: (ctx: LiteralContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `MyGrammarParser.parameterList`.
+	 * @param ctx the parse tree
+	 */
+	enterParameterList?: (ctx: ParameterListContext) => void;
+	/**
+	 * Exit a parse tree produced by `MyGrammarParser.parameterList`.
+	 * @param ctx the parse tree
+	 */
+	exitParameterList?: (ctx: ParameterListContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `MyGrammarParser.parameter`.
+	 * @param ctx the parse tree
+	 */
+	enterParameter?: (ctx: ParameterContext) => void;
+	/**
+	 * Exit a parse tree produced by `MyGrammarParser.parameter`.
+	 * @param ctx the parse tree
+	 */
+	exitParameter?: (ctx: ParameterContext) => void;
+
+	/**
+	 * Enter a parse tree produced by `MyGrammarParser.type`.
+	 * @param ctx the parse tree
+	 */
+	enterType?: (ctx: TypeContext) => void;
+	/**
+	 * Exit a parse tree produced by `MyGrammarParser.type`.
+	 * @param ctx the parse tree
+	 */
+	exitType?: (ctx: TypeContext) => void;
 
 	/**
 	 * Enter a parse tree produced by `MyGrammarParser.identifier`.
@@ -132,14 +168,14 @@ export interface MyGrammarListener extends ParseTreeListener {
 	exitIdentifier?: (ctx: IdentifierContext) => void;
 
 	/**
-	 * Enter a parse tree produced by `MyGrammarParser.type`.
+	 * Enter a parse tree produced by `MyGrammarParser.binaryOperator`.
 	 * @param ctx the parse tree
 	 */
-	enterType?: (ctx: TypeContext) => void;
+	enterBinaryOperator?: (ctx: BinaryOperatorContext) => void;
 	/**
-	 * Exit a parse tree produced by `MyGrammarParser.type`.
+	 * Exit a parse tree produced by `MyGrammarParser.binaryOperator`.
 	 * @param ctx the parse tree
 	 */
-	exitType?: (ctx: TypeContext) => void;
+	exitBinaryOperator?: (ctx: BinaryOperatorContext) => void;
 }
 

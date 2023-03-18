@@ -10,6 +10,10 @@
   "author": "Philip pesic",
   "license": "GPLv3",
   "dependencies": {
+    "antlr4ts": "^0.5.0-alpha.4",
     "typescript": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.3"
   }
 }
