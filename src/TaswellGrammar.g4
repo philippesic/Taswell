@@ -1,4 +1,4 @@
-grammar MyGrammar;
+grammar TaswellGrammar;
 
 import TypeScript;
 
@@ -24,6 +24,9 @@ literal : INT | FLOAT | STRING;
 parameterList : parameter (',' parameter)*;
 
 parameter : identifier ':' type;
+
+writeStmt : 'write' '(' STRINGLITERAL ')' ; valid?
+writelnStmt : 'writeln' '(' STRINGLITERAL ')' ; valid?
 
 type : 'int' | 'float' | 'string';
 
